@@ -44,6 +44,25 @@ $(function () {
     })
   })
 
+  // 控制注册表单的提交
+  $('#registerForm').submit(function (e) {
+    e.preventDefault()
+    // 获取表单数据(表单输入域必须提供name属性，name的值必须和接口文档要求一致)
+    var formData = $(this).serialize()
+    // 调用接口进行注册
+    $.ajax({
+      type: 'post',
+      url: 'http://ajax.frontend.itheima.net/api/reguser',
+      data: formData,
+      success: function (res) {
+        if (res.status === 0) {
+          // 注册成功，显示登陆框
+          $('#registerForm a').click()
+        }
+      }
+    })
+  })
+
   // 登录表单的底部链接
   $('#loginForm a').click(function () {
     $('#loginForm').hide()
