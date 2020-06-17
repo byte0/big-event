@@ -9,22 +9,13 @@
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
+  <!-- 顶部导航栏 -->
   <div class="layui-header">
-    <div class="layui-logo">layui 后台布局</div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-    <ul class="layui-nav layui-layout-left">
-      <li class="layui-nav-item"><a href="">控制台</a></li>
-      <li class="layui-nav-item"><a href="">商品管理</a></li>
-      <li class="layui-nav-item"><a href="">用户</a></li>
-      <li class="layui-nav-item">
-        <a href="javascript:;">其它系统</a>
-        <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
-        </dl>
-      </li>
-    </ul>
+    <!-- 导航栏Logo区域 -->
+    <div class="layui-logo">
+      <img src="./assets/images/logo.png">
+    </div>
+    <!-- 导航栏右侧菜单区域 -->
     <ul class="layui-nav layui-layout-right">
       <li class="layui-nav-item">
         <a href="javascript:;">
@@ -33,13 +24,14 @@
         </a>
         <dl class="layui-nav-child">
           <dd><a href="">基本资料</a></dd>
-          <dd><a href="">安全设置</a></dd>
+          <dd><a href="">更换头像</a></dd>
+          <dd><a href="">重置密码</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item"><a href="">退了</a></li>
     </ul>
   </div>
-  
+  <!-- 左侧菜单区 -->
   <div class="layui-side layui-bg-black">
     <div class="layui-side-scroll">
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
@@ -66,15 +58,15 @@
       </ul>
     </div>
   </div>
-  
+  <!-- 右侧内容区 -->
   <div class="layui-body">
     <!-- 内容主体区域 -->
     <div style="padding: 15px;">内容主体区域</div>
   </div>
-  
+  <!-- 右侧底部的Footer -->
   <div class="layui-footer">
     <!-- 底部固定区域 -->
-    © layui.com - 底部固定区域
+    © www.itheima.com - 黑马程序员
   </div>
 </div>
 <script type="text/javascript" src="./assets/lib/jquery.js"></script>
