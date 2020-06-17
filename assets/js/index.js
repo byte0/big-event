@@ -11,6 +11,7 @@ $(function () {
       type: 'get',
       url: 'http://ajax.frontend.itheima.net/my/userinfo',
       headers: {
+        // my开头的请求都需要携带请求头，作用：权限验证（只有登录后才能访问）
         Authorization: localStorage.getItem('mytoken')
       },
       success: function (res) {
