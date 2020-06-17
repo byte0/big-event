@@ -43,5 +43,18 @@ $(function () {
       }
     })
   })
+
+  // 登录表单的底部链接
+  $('#loginForm a').click(function () {
+    $('#loginForm').hide()
+    $('#registerForm').show()
+  })
+
+  // 注册表单的地步链接
+  $('#registerForm a').click(function () {
+    // 点击后应该做什么？切换表单的显示和隐藏
+    $('#loginForm').show()
+    $('#registerForm').hide()
+  })
   
 })
