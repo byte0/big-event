@@ -19,7 +19,7 @@ $(function () {
     // 验证确认密码必须和原有密码一致
     same: function (value) {
       // 获取原始密码
-      var pwd = $('#registerForm input[type=password]').val()
+      var pwd = $('#registerForm input[name=password]').val()
       if (pwd !== value) {
         return '两次输入的密码必须一致'
       }
@@ -66,6 +66,8 @@ $(function () {
         if (res.status === 0) {
           // 注册成功，显示登陆框
           $('#registerForm a').click()
+          // 成功后进行提示
+          layer.msg(res.message)
         } else {
           // 注册失败
           // layer是一个独立的模块，默认可以直接使用
