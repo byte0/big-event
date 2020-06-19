@@ -38,6 +38,8 @@ $(function () {
         // 更新成功后，提示一下
         if (res.status === 0) {
           layer.msg(res.message)
+        } else {
+          layer.msg(res.message)
         }
       }
     })
