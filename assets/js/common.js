@@ -2,7 +2,8 @@ $(function () {
   /*
     通用的接口调用设置
   */
-  var baseURL = 'http://ajax.frontend.itheima.net/'
+  // var baseURL = 'http://ajax.frontend.itheima.net/'
+  var baseURL = 'http://www.liulongbin.top:3007/'
 
   // 所有的请求发送之前经过该函数，可以对相关请求和响应做一些调整
   $.ajaxPrefilter(function (option) {
@@ -29,6 +30,7 @@ $(function () {
     // 3、处理通用的异常情况
     // 服务器响应结束时触发
     option.complete = function (res) {
+      console.log(res)
       // 完成请求后，结束进度条
       window.NProgress && window.NProgress.done()
       // 处理失败的情况
