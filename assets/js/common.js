@@ -30,7 +30,6 @@ $(function () {
     // 3、处理通用的异常情况
     // 服务器响应结束时触发
     option.complete = function (res) {
-      console.log(res)
       // 完成请求后，结束进度条
       window.NProgress && window.NProgress.done()
       // 处理失败的情况
