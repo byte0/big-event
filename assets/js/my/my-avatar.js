@@ -32,7 +32,6 @@ $(function () {
 
   // 4、点击确定按钮进行文件上传
   $('#okbtn').click(function () {
-    console.log(123)
     // 4-1、获取裁剪后的图片信息
     var imgURL = $image.cropper('getCroppedCanvas', {
       width: 100,
@@ -48,11 +47,12 @@ $(function () {
         avatar: imgURL
       },
       success: function (res) {
-        console.log(res)
-        // if (res.status === 0) {
-        //   // 更新成功：更新头像，并且提示
-        //   layer.msg(res.message)
-        // }        
+        if (res.status === 0) {
+          // 更新成功：更新头像，并且提示
+          layer.msg(res.message)
+          // 更新头像（parent表示iframe的父窗口）
+          window.parent.$.loadUserInfo()
+        }        
       }
     })
   })
