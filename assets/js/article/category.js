@@ -18,6 +18,8 @@ $(function () {
   
   // 弹出层的唯一标识
   var addIndex = null
+  // 编辑弹出唯一标识
+  var editIndex = null
 
   // 添加分类（通过弹出层方式实现）
   $('#addCategory').click(function () {
@@ -53,7 +55,7 @@ $(function () {
   })
 
   // 监听添加分类的表单提交事件
-  $('body').on('click', '#add-form', function (e) {
+  $('body').on('submit', '#add-form', function (e) {
     // 阻止表单的默认行为
     e.preventDefault()
     // 获取表单数据
@@ -68,6 +70,29 @@ $(function () {
           layer.msg(res.message)
           // 关闭弹出层
           layer.close(addIndex)
+          // 刷新分类列表
+          loadListData()
+        }
+      }
+    })
+  })
+
+  // 监听编辑分类的表单提交事件
+  $('body').on('submit', '#edit-form', function (e) {
+    // 阻止表单的默认行为
+    e.preventDefault()
+    // 获取表单数据
+    var fd = $(this).serialize()
+    $.ajax({
+      type: 'post',
+      url: 'my/article/updatecate',
+      data: fd,
+      success: function (res) {
+        if (res.status === 0) {
+          // 编辑分类成功，提示一下并且关闭弹出层,刷新分类列表
+          layer.msg(res.message)
+          // 关闭弹出层
+          layer.close(editIndex)
           // 刷新分类列表
           loadListData()
         }
@@ -97,9 +122,7 @@ $(function () {
       }
     })
   })
-
-  // 编辑弹出唯一标识
-  var editIndex = null
+  
   // 监听编辑按钮事件
   $('body').on('click', '.edit', function (e) {
     // 获取要编辑的分类的id
@@ -124,6 +147,5 @@ $(function () {
         form.val('editForm', res.data)
       }
     })
-    
   })
 })
