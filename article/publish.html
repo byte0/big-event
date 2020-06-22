@@ -46,8 +46,27 @@
         <!-- 第四行：文章封面 -->
         <div class="layui-form-item">
           <label class="layui-form-label">文章封面</label>
+          <div class="layui-input-block cover-box">
+            <!-- 左侧裁剪区域 -->
+            <div class="cover-left">
+              <img id="image" src="../assets/images/sample2.jpg" alt="" />
+            </div>
+            <!-- 右侧预览区域和选择封面区域 -->
+            <div class="cover-right">
+              <!-- 预览的区域 -->
+              <div class="img-preview"></div>
+              <!-- 选择封面按钮 -->
+              <input style="display: none;" type="file" name="cover_img" id="cover_img">
+              <button id="select-btn" type="button" class="layui-btn layui-btn-danger">选择封面</button>
+            </div>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label"></label>
           <div class="layui-input-block">
-            
+            <!-- 提交按钮 -->
+            <button type="button" class="layui-btn">发布</button>
+            <button type="button" class="layui-btn layui-btn-primary">存为草稿</button>
           </div>
         </div>
       </form>
@@ -61,7 +80,7 @@
     状态：<input type="text" name="state"/><br>
     <button>提交</button>
   </form> -->
-    
+
   <script src="../assets/lib/jquery.js"></script>
   <script src="../assets/lib/layui/layui.all.js"></script>
   <!-- 加载剪裁js -->
