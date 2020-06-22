@@ -73,19 +73,21 @@ $(function () {
         .cropper(options)
   })
 
-  // 绑定提交按钮的事件
-  $('#submit-btn').on('click', '.layui-btn', function (e) {
-    // 文章的状态处理
+  // 处理提交按钮的点击行为
+  var state = ''
+  $('.layui-btn').click(function () {
     var type = $(this).data('type')
-    var state = ''
     if (type === 'publish') {
-      // 发布文章
       state = '已发布'
-    } else if (type === 'temp'){
-      // 存为草稿
+    } else if (type === 'temp') {
       state = '草稿'
     }
+  })
 
+  // 绑定提交按钮的事件
+  $('#add-form').on('submit', function (e) {
+    // 文章的状态处理
+    e.preventDefault()
     // 生成文章封面图片
     $img
       .cropper('getCroppedCanvas', { 
