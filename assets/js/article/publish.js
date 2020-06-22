@@ -5,27 +5,27 @@ $(function () {
   // form.render('select')
 
   // 绑定表单提交事件
-  $('#add-form').submit(function (e) {
-    e.preventDefault()
-    // var fd = $(this).serialize()
-    // 处理文件上传
-    var fd = new FormData(this)
-    $.ajax({
-      type: 'post',
-      url: 'my/article/add',
-      data: fd,
-      // 防止把请求参数转换为字符串
-      processData: false,
-      // 禁止使用默认的提交参数类型
-      contentType: false,
-      success: function (res) {
-        console.log(res)
-        if (res.status === 0) {
-          layer.msg(res.message)
-        }
-      }
-    })
-  })
+  // $('#add-form').submit(function (e) {
+  //   e.preventDefault()
+  //   // var fd = $(this).serialize()
+  //   // 处理文件上传
+  //   var fd = new FormData(this)
+  //   $.ajax({
+  //     type: 'post',
+  //     url: 'my/article/add',
+  //     data: fd,
+  //     // 防止把请求参数转换为字符串
+  //     processData: false,
+  //     // 禁止使用默认的提交参数类型
+  //     contentType: false,
+  //     success: function (res) {
+  //       console.log(res)
+  //       if (res.status === 0) {
+  //         layer.msg(res.message)
+  //       }
+  //     }
+  //   })
+  // })
 
   // 动态获取分类列表数据
   function loadListData () {
@@ -71,6 +71,35 @@ $(function () {
     $img.cropper('destroy')
         .attr('src', newImgURL)
         .cropper(options)
+  })
 
+  // 绑定提交按钮的事件
+  $('#submit-btn').on('click', '.layui-btn', function (e) {
+    // 文章的状态处理
+    var type = $(this).data('type')
+    var state = ''
+    if (type === 'publish') {
+      // 发布文章
+      state = '已发布'
+    } else if (type === 'temp'){
+      // 存为草稿
+      state = '草稿'
+    }
+
+    // 生成文章封面图片
+    $img
+      .cropper('getCroppedCanvas', { 
+        // 创建一个 Canvas 画布
+        width: 400,
+        height: 280
+      })
+      .toBlob(function (blob) {
+        // 生成一张图片，用于上传操作
+        // 在这里应该提交表单
+        // 先获取表单元素
+        var form = $('#add-form').get(0)
+        var fd = new FormData(form)
+
+      })
   })
 })
