@@ -2,7 +2,7 @@ $(function () {
   // 导入表单对象
   var form = layui.form
   // 初始化下来选框
-  form.render('select')
+  // form.render('select')
 
   // 绑定表单提交事件
   $('#add-form').submit(function (e) {
@@ -36,9 +36,13 @@ $(function () {
         // 基于模板引擎渲染列表数据
         var result = template('list-tpl', res)
         $('#cate-list').html(result)
+        // layui要求调用render方法重新渲染下拉列表
         form.render('select')
       }
     })
   }
   loadListData()
+
+  // 初始化富文本编辑器
+  initEditor()
 })
