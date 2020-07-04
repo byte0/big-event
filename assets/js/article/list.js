@@ -63,11 +63,17 @@ $(function () {
           count: res.total,
           // 每页显示的条数
           limit: pagesize,
+          // 每页显示条数列表
+          limits: [3, 10, 30, 40, 100],
+          // 分页条布局效果
+          layout: ['prev', 'page', 'next', 'skip', 'count', 'limit'],
           // 页面切换是触发的动作
           jump: function (obj, first) {
             // obj 表示分页的所有参数；first用于判断首次加载
             // 这里触发时，需要修改当前页码
             pagenum = obj.curr
+            // 切换每页显示条数时，修改pagesize
+            pagesize = obj.limit
             // 重新加载接口数据
             if (!first) {
               // 首次不触发，切换页码时触发
